@@ -1,5 +1,5 @@
 
-import MD5 from "./node_modules/crypto-js/md5"; 
+import MD5 from "./node_modules/crypto-js/md5.js"; 
 
 console.log("Working");
 
