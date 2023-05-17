@@ -47,12 +47,12 @@ function handleKeyAndClick(e){
 
     if(e.target.id === "delete"){
         let heroId = e.target.dataset.id;
-        const newFav = listOfHeros.filter(function (heroId) {
+        const newFav = listOfHeros.filter(function (id) {
             return heroId !== id;
         });
         listOfHeros =[... newFav];
          //updating the favList array present in the localStorage
-        localStorage.setItem("favHeros", JSON.stringify(listOfHeros));
+        localStorage.setItem("favHeros", JSON.stringify(newFav));
 
         let ele = document.getElementById(heroId);
         ele.style.display ="none";
