@@ -96,8 +96,8 @@ function handleKeyAndClick(e){
     if(e.target.id === "details"){
         let heroId = e.target.dataset.id;
         localStorage.setItem("heroId", JSON.stringify(heroId));
-        console.log("mealItem Clicked " + mealId + e.target.id);
-        //window.open("./heroDetails/mealDetails.html");
+        
+        window.open("./details/details.html");
     }
     if(e.target.id === "favBtn"){
         addToFav(e.target.dataset.id, e.target.dataset.title);
@@ -108,7 +108,5 @@ function handleKeyAndClick(e){
     }
 
 }
-
-
 document.addEventListener("keyup", handleKeyAndClick);
 document.addEventListener("click", handleKeyAndClick);
