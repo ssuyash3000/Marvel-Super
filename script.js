@@ -77,9 +77,7 @@ function addToFav(heroId, heroTitle){
     setTimeout(()=>{
         errorMessage.innerHTML = "";
     }, 4000);
-    //updating the favList array in the localStorage each time 
-    // favList is updated 
-    localStorage.setItem("favList", JSON.stringify(favList));
+
 }
 
 function handleInput(input){
@@ -104,7 +102,7 @@ function handleKeyAndClick(e){
     }
     if(e.target.id === "favourite"){
         localStorage.setItem("favHeros", JSON.stringify(favList));
-        //window.open("./Favourite/favourite.html");
+        window.open("./favList/fav.html");
     }
 
 }
