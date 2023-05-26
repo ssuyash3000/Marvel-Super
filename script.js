@@ -42,8 +42,19 @@ function renderHeroList(){
 async function searchInput(text){
 
     if(text.length != 0){
+        const publicKey = "901e2ea3a1a7a46b81e799ad36384e6f";
+        const privateKey = "e62834c9bacb28702a03a0715b0108696dc44425";
 
-        let url = `https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${text}&apikey=c2595c6e10b8e75e6bd3b3c61b14547c&hash=77964d9b5c2bef6213992685d7c2dfd4&ts=1`;
+        
+        // Example request to fetch a list of Marvel characters
+        const timestamp = new Date().getTime();
+        const apiUrl = `https://gateway.marvel.com/v1/public/characters?ts=${timestamp}&nameStartsWith=${text}&`;
+        
+        const hash = CryptoJS.MD5(timestamp + privateKey + publicKey).toString();
+        
+        // Construct the URL with the necessary query parameters
+        const url = `${apiUrl}&apikey=${publicKey}&hash=${hash}`;
+        //let url = `https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${text}&apikey=c2595c6e10b8e75e6bd3b3c61b14547c&hash=77964d9b5c2bef6213992685d7c2dfd4&ts=1`;
         let response = await fetch(url);
         const data1 = await response.json();
         listOfHeros = (data1.data.results);
