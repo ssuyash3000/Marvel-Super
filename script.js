@@ -48,7 +48,7 @@ async function searchInput(text){
         
         // Example request to fetch a list of Marvel characters
         const timestamp = new Date().getTime();
-        const apiUrl = `https://gateway.marvel.com/v1/public/characters?ts=${timestamp}&nameStartsWith=${text}`;
+        const apiUrl = `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${text}&ts=${timestamp}`;
         
         const hash = CryptoJS.MD5(timestamp + privateKey + publicKey).toString();
         
